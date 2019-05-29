@@ -1,10 +1,10 @@
-require '../storage/access_to_storage'
-
 class Author
-  include Storage
+  include Validation
 
-  def initialize(name, biography)
-    raise ArgumentError, 'Name must be type of String' unless name.is_a? String
+  attr_reader :name, :biography
+
+  def initialize(name, biography = 'empty')
+    validate name
 
     @name = name
     @biography = biography
