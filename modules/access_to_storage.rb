@@ -1,7 +1,11 @@
 require 'json'
 
-module Storage
-  @path_to_file = '../storage/data.json'
+class Storage
+  attr_accessor :json
+
+  def initialize
+    @path_to_file = '../storage/data.json'
+  end
 
   def open
     json_file = File.read @path_to_file
@@ -10,16 +14,5 @@ module Storage
 
   def write
     File.write @path_to_file, @json.to_json
-  end
-
-  def authors
-    open
-    @json['Author']
-  end
-
-  def write_something(arg)
-    open
-    @json['Author'] << arg
-    write
   end
 end
