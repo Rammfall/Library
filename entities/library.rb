@@ -7,12 +7,16 @@ class Library
 
   def add_entities(entity)
     type_entities = entity.class
+    puts type_entities == Author
+
+
 
     case type_entities
     when Author
-      @data['Author'] << entity
+      puts "amsd"
+      @data["Author"] << entity
     when Book
-      @data['Book'] << entity
+      @data["Book"] << entity
     when Order
       @data['Order'] << entity
     when Reader
@@ -20,6 +24,7 @@ class Library
     else
       puts 'Incorrect class for this App'
     end
+    puts @data
 
     @storage.write
   end

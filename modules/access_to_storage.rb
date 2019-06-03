@@ -4,7 +4,7 @@ class Storage
   attr_accessor :json
 
   def initialize
-    @path_to_file = '../storage/data.json'
+    @path_to_file = './storage/data.json'
   end
 
   def open
