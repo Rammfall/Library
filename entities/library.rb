@@ -9,14 +9,12 @@ class Library
     type_entities = entity.class
     puts type_entities == Author
 
-
-
     case type_entities
     when Author
-      puts "amsd"
-      @data["Author"] << entity
+      puts 'amsd'
+      @data['Author'] << entity
     when Book
-      @data["Book"] << entity
+      @data['Book'] << entity
     when Order
       @data['Order'] << entity
     when Reader
