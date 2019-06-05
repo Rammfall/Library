@@ -3,6 +3,59 @@ Author:
 - !ruby/object:Author
   name: some string
   biography: sdgf
-Readers: []
-Books: []
-Orders: []
+- !ruby/object:Author
+  name: some string
+  biography: sdgf
+- &1 !ruby/object:Author
+  name: some string
+  biography: sdgf
+- &2 !ruby/object:Author
+  name: some string
+  biography: sdgf
+- &3 !ruby/object:Author
+  name: some string
+  biography: sdgf
+- &4 !ruby/object:Author
+  name: some string
+  biography: sdgf
+Readers:
+- !ruby/object:Reader
+  name: John Doe
+  email: sdfds@dg.dg
+  city: New York
+  street: sdg
+  house: '5'
+- &6 !ruby/object:Reader
+  name: John Doe
+  email: sdfds@dg.dg
+  city: New York
+  street: sdg
+  house: '5'
+- &8 !ruby/object:Reader
+  name: John Doe
+  email: sdfds@dg.dg
+  city: New York
+  street: sdg
+  house: '5'
+Books:
+- !ruby/object:Book
+  title: Great Gatsby
+  author: *1
+- !ruby/object:Book
+  title: Great Gatsby
+  author: *2
+- &5 !ruby/object:Book
+  title: Great Gatsby
+  author: *3
+- &7 !ruby/object:Book
+  title: Great Gatsby
+  author: *4
+Orders:
+- !ruby/object:Order
+  book: *5
+  reader: *6
+  date: 2019-06-05 15:34:34.828144000 +03:00
+- !ruby/object:Order
+  book: *7
+  reader: *8
+  date: 2019-06-05 15:46:57.453147000 +03:00

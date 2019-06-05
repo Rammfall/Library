@@ -1,5 +1,3 @@
-require 'pry'
-
 class Library
   def initialize
     @storage = Storage.new
@@ -7,7 +5,7 @@ class Library
     @data = @storage.data
   end
 
-  def add_entities(entity)
+  def add_entities(entity) 
     type_entities = entity.class.to_s
     puts type_entities
 
@@ -15,11 +13,11 @@ class Library
     when 'Author'
       @data['Author'] << entity
     when 'Book'
-      @data['Book'] << entity
+      @data['Books'] << entity
     when 'Order'
-      @data['Order'] << entity
+      @data['Orders'] << entity
     when 'Reader'
-      @data['Reader'] << entity
+      @data['Readers'] << entity
     else
       puts 'Incorrect class for this App'
     end

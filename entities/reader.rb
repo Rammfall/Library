@@ -12,8 +12,4 @@ class Reader
     @street = street
     @house = house
   end
-
-  def validate_all(*fields)
-    fields.each { |field| validate(field) }
-  end
 end
