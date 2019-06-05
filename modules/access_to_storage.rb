@@ -1,18 +1,18 @@
-require 'json'
+require 'yaml'
 
 class Storage
-  attr_accessor :json
+  attr_accessor :data
 
   def initialize
-    @path_to_file = './storage/data.json'
+    @path_to_file = './storage/data.yml'
   end
 
   def open
-    json_file = File.read @path_to_file
-    @json = JSON.parse json_file
+    file = File.read @path_to_file
+    @data = YAML.load file
   end
 
   def write
-    File.write @path_to_file, @json.to_json
+    File.write @path_to_file, @data.to_yaml
   end
 end

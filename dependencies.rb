@@ -1,6 +1,6 @@
-require './modules/access_to_storage'
-require './modules/statistic'
-require './modules/validation'
+require_relative './modules/access_to_storage'
+require_relative './modules/statistic'
+require_relative './modules/validation'
 
 require './entities/author'
 require './entities/book'

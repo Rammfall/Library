@@ -1,28 +1,28 @@
+require 'pry'
+
 class Library
   def initialize
     @storage = Storage.new
     @storage.open
-    @data = @storage.json
+    @data = @storage.data
   end
 
   def add_entities(entity)
-    type_entities = entity.class
-    puts type_entities == Author
+    type_entities = entity.class.to_s
+    puts type_entities
 
     case type_entities
-    when Author
-      puts 'amsd'
+    when 'Author'
       @data['Author'] << entity
-    when Book
+    when 'Book'
       @data['Book'] << entity
-    when Order
+    when 'Order'
       @data['Order'] << entity
-    when Reader
+    when 'Reader'
       @data['Reader'] << entity
     else
       puts 'Incorrect class for this App'
     end
-    puts @data
 
     @storage.write
   end

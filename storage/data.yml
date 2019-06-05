@@ -1,0 +1,8 @@
+---
+Author:
+- !ruby/object:Author
+  name: some string
+  biography: sdgf
+Readers: []
+Books: []
+Orders: []

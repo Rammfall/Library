@@ -1,6 +1,9 @@
-require './dependencies'
+require_relative './dependencies'
 
 a = Library.new
-# a.add_entities << Author.new('New name of smth', 'bio')
 
-puts a.add_entities Author.new 'some string', 'sdgf'
+author = Author.new 'some string', 'sdgf'
+book = Book.new 'Great Gatsby', author
+
+# a.add_entities author
+# a.add_entities book
