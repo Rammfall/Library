@@ -5,10 +5,13 @@ class Statistic
     @data = @storage.data
   end
 
-  def top_reader quantity = 1
-    readers = Array.new
+  def top_reader(quantity = 1)
+    readers = []
 
-    @data['Orders'].each {|reader| readers << reader.reader}
-    puts readers
+    @data['Orders'].each do |reader|
+      readers << reader.reader
+    end
+
+    puts readers[1..quantity]
   end
 end

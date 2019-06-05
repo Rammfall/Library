@@ -5,7 +5,7 @@ class Library
     @data = @storage.data
   end
 
-  def add_entities(entity) 
+  def add_entities(entity)
     type_entities = entity.class.to_s
     puts type_entities
 
