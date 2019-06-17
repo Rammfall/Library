@@ -56,6 +56,10 @@ Orders:
   reader: *6
   date: 2019-06-05 15:34:34.828144000 +03:00
 - !ruby/object:Order
+  book: *1
+  reader: *6
+  date: 2019-06-05 15:34:34.828144000 +03:00
+- !ruby/object:Order
   book: *7
   reader: *8
   date: 2019-06-05 15:46:57.453147000 +03:00
