@@ -5,8 +5,9 @@ class Statistic
     @data = @storage.data
   end
 
-  def top_reader(quantity = 1)
+  def top_reader(quantity = 0)
     readers = {}
+    sort_reader = {}
 
     @data['Orders'].each do |reader|
       if ( readers[reader.reader] )
@@ -16,7 +17,15 @@ class Statistic
       end
     end
 
-    print readers
+    readers.each do |reader, quantity_books|
+      sort_reader[quantity_books] = reader
+    end
+
+    sort_reader = sort_reader.to_a
+
+    sort_reader = sort_reader.to_a.sort_by { |value| value }.reverse
+
+    print sort_reader[0..quantity]
   end
 
   def top_books(quantity = 1)
@@ -31,5 +40,9 @@ class Statistic
     end
 
     print books
+  end
+
+  def top
+
   end
 end
