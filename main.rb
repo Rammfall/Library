@@ -3,7 +3,8 @@ require './dependencies'
 library = Library.new
 statistic = Statistic.new
 
-statistic.top_books
+# statistic.top_books 2
+# statistic.top_reader 2
 
 # author = Author.new 'some string', 'sdgf'
 # book = Book.new 'Great Gatsby', author

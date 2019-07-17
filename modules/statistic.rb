@@ -5,46 +5,32 @@ class Statistic
     @data = @storage.data
   end
 
-  def top_reader(quantity = 0)
-    readers = {}
-    sort_reader = {}
+  def top_reader(quantity = 1)
+    res = top 'Orders', 'reader', 'name'
 
-    @data['Orders'].each do |reader|
-      if (readers[reader.reader])
-        readers[reader.reader] += 1
-      else
-        readers[reader.reader] = 1
-      end
-    end
-
-    readers.each do |reader, quantity_books|
-      sort_reader[quantity_books] = reader
-    end
-
-    sort_reader = sort_reader.to_a
-
-    sort_reader = sort_reader.to_a.sort_by {|value| value}.reverse
-
-    print sort_reader[0..quantity]
+    puts output(res[0..quantity - 1], quantity, 'Readers')
   end
 
   def top_books(quantity = 1)
-    print top 'Orders', 'book'
+    res = top 'Orders', 'book', 'title'
+
+    puts output(res[0..quantity - 1], quantity, 'Books')
   end
 
-  def top(entity, column)
-    data = Hash.new
-    sort_data = {}
+  def top(entity, column, field)
+    sort_data = Hash.new(0)
 
-    @data[entity.to_s].each do |reader|
-      data[reader[column]] = data[reader[column]] ? data[reader[column]] + 1 : 1
-      # print column.to_sym
-      # print data.class
+    @data[entity].each do |order|
+      sort_data[order[column][field]] += 1
     end
 
-    data.each do |reader, quantity_books|
-      sort_data[quantity_books] = reader
-    end
-    sort_data
+    sort_data.sort_by do |_title, num|
+      -num
+    end.to_a
+  end
+
+  def output(array, quantity, word)
+    list = array.map { |item| item[0].to_s }.join(', ')
+    "Top #{quantity} #{word} - #{list}"
   end
 end

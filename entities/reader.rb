@@ -12,4 +12,8 @@ class Reader
     @street = street
     @house = house
   end
+
+  define_method :[] do |key|
+    instance_variable_get "@#{key}"
+  end
 end

@@ -12,4 +12,8 @@ class Order
     @reader = reader
     @date = date
   end
+
+  define_method :[] do |property|
+    instance_variable_get "@#{property}"
+  end
 end
